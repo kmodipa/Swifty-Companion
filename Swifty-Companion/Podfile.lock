@@ -1,0 +1,16 @@
+PODS:
+  - JSONParserSwift (1.1.4)
+
+DEPENDENCIES:
+  - JSONParserSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - JSONParserSwift
+
+SPEC CHECKSUMS:
+  JSONParserSwift: fff6c8aee929431cfbb10d016e9b92f06f732057
+
+PODFILE CHECKSUM: 58db59885990b5679caed95cc4a3a847b64123d8
+
+COCOAPODS: 1.5.3
