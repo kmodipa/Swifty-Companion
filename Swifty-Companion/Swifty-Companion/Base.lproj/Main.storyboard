@@ -36,6 +36,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vR7-K0-aXO"/>
                                     <segue destination="hKb-n2-gcb" kind="show" id="tuZ-xA-h8O"/>
                                 </connections>
                             </button>
@@ -50,6 +51,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="HsH-Cf-8hm"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="W1t-6i-Sv5" id="bOL-oW-sNB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
