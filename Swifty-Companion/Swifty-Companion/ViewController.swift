@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     /*  Getting the user info */
     func getTopic() {
         print("Started connection")
-        let authEndPoint: String = "https://api.intra.42.fr/v2/users/kmodipa"
+        let authEndPoint: String = "https://api.intra.42.fr/v2/users/lmucassi"
         //        print(user!)
         let url = URL(string: authEndPoint)
         var request = URLRequest(url: url!)
@@ -80,13 +80,14 @@ class ViewController: UIViewController {
 //                    var base = try JSONDecoder().decode(RootClass.self, from: data)
                     let json = try JSON(data: data)
                     
+//                    print(json)
                     let skills = json["cursus_users"][0]["skills"]
                     let projectUsers = json["projects_users"]
                     let cursusUsers = json["cursus_users"]
                     
                     let image = json["image_url"].string!
                     print(image)
-                    print(json[].string)
+//                    print(json[].string)
                     
                     /* Getting Cursus_users */
                     for element in cursusUsers.arrayValue {
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
                     
                     /* Getting the BaseResponds */
                     self.baseResbonse.append(BaseResponse(json))
-                    print(self.baseResbonse)
+//                    print(self.baseResbonse)
 
                     
                     
@@ -116,7 +117,7 @@ class ViewController: UIViewController {
 //                        print(element["level"])
                     }
                     
-                    print("Skills: \(self.skills.count)")
+                    print("Skills: \(self.skills[1].name)")
                    
                     
                 } catch {
