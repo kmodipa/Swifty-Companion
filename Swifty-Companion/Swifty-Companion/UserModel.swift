@@ -163,10 +163,7 @@ struct BaseResponse {
     var correction_point: Int = 0
     var cursus_users: [Cursus_users]?
     var projects_users: [Projects_users]?
-    
-    init() {
-        
-    }
+
     
     init(_ json: JSON) {
         image_url = json["image_url"].stringValue
