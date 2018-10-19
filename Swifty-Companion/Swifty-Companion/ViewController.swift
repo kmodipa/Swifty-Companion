@@ -19,6 +19,16 @@ class ViewController: UIViewController {
     var projectUsers = [Projects_users]()
     var project = [Project]()
     
+    /* UI Properties */
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var walletLabel: UILabel!
+    @IBOutlet weak var correctionLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     var user: String? /* Info comes from the textField specified in the EntrViewController */
     
     var deToken = ""
@@ -90,33 +100,21 @@ class ViewController: UIViewController {
                     for element in cursusUsers.arrayValue {
                         self.cursusUsers.append(Cursus_users(element))
                     }
-//                    print(self.cursusUsers)
                     
                     /* Getting Project_users */
                     for element in projectUsers.arrayValue {
                         self.projectUsers.append(Projects_users(element))
                     }
-                    print("ProjectUsers: \(self.projectUsers.count)")
                     
                     /* Getting the BaseResponds */
                     self.baseResbonse.append(BaseResponse(json))
                     print(self.baseResbonse)
 
-                    
-                    
-                    print("BaseResponse: \(self.baseResbonse.count)")
-//                    print(self.baseResbonse)
-                    
                     /* Getting Skills */
                     for element in skills.arrayValue {
                         self.skills.append(Skills(element))
-//                        print(element["name"])
-//                        print(element["level"])
                     }
-                    
-                    print("Skills: \(self.skills.count)")
                    
-                    
                 } catch {
                     print(error)
                 }
