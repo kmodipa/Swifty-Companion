@@ -79,14 +79,42 @@ class ViewController: UIViewController {
                     let json = try JSON(data: data)
                     
                     let skills = json["cursus_users"][0]["skills"]
+                    let projectUsers = json["projects_users"]
+                    let cursusUsers = json["cursus_users"]
                     
+                    let image = json["image_url"].string!
+                    print(image)
+                    print(json[].string)
+                    
+                    /* Getting Cursus_users */
+                    for element in cursusUsers.arrayValue {
+                        self.cursusUsers.append(Cursus_users(element))
+                    }
+//                    print(self.cursusUsers)
+                    
+                    /* Getting Project_users */
+                    for element in projectUsers.arrayValue {
+                        self.projectUsers.append(Projects_users(element))
+                    }
+                    print("ProjectUsers: \(self.projectUsers.count)")
+                    
+                    /* Getting the BaseResponds */
+                    self.baseResbonse.append(BaseResponse(json))
+                    print(self.baseResbonse)
+
+                    
+                    
+                    print("BaseResponse: \(self.baseResbonse.count)")
+//                    print(self.baseResbonse)
+                    
+                    /* Getting Skills */
                     for element in skills.arrayValue {
                         self.skills.append(Skills(element))
-                        print(element["name"])
-                        print(element["level"])
+//                        print(element["name"])
+//                        print(element["level"])
                     }
                     
-                    print(self.skills)
+                    print("Skills: \(self.skills.count)")
                    
                     
                 } catch {
