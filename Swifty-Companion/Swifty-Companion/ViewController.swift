@@ -19,9 +19,7 @@ class ViewController: UIViewController {
     var projectUsers = [Projects_users]()
     var project = [Project]()
     
-    @IBOutlet weak var searchTextField: UITextField!
-    
-    var user: String?
+    var user: String? /* Info comes from the textField specified in the EntrViewController */
     
     var deToken = ""
     var topicsBackup: [Dictionary<String,Any>]?
@@ -64,7 +62,7 @@ class ViewController: UIViewController {
     /*  Getting the user info */
     func getTopic() {
         print("Started connection")
-        let authEndPoint: String = "https://api.intra.42.fr/v2/users/kmodipa"
+        let authEndPoint: String = "https://api.intra.42.fr/v2/users/\(user!)"
         //        print(user!)
         let url = URL(string: authEndPoint)
         var request = URLRequest(url: url!)
@@ -101,11 +99,6 @@ class ViewController: UIViewController {
         }
         requestGET.resume()
         print("End token")
-    }
-    
-    
-    @IBAction func searchButton(_ sender: UIButton) {
-        getTopic()
     }
     
     override func didReceiveMemoryWarning() {

@@ -13,7 +13,7 @@
         <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Swifty_Companion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EntryViewController" customModule="Swifty_Companion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,8 +36,8 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vR7-K0-aXO"/>
-                                    <segue destination="hKb-n2-gcb" kind="show" id="tuZ-xA-h8O"/>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B4Z-qK-AQB"/>
+                                    <segue destination="hKb-n2-gcb" kind="show" identifier="mySegue" id="tuZ-xA-h8O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,7 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="HsH-Cf-8hm"/>
                     <connections>
-                        <outlet property="searchTextField" destination="W1t-6i-Sv5" id="bOL-oW-sNB"/>
+                        <outlet property="searchTextField" destination="W1t-6i-Sv5" id="F2H-6l-ZcY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -62,7 +62,7 @@
         <!--View Controller-->
         <scene sceneID="Td4-wf-k21">
             <objects>
-                <viewController id="hKb-n2-gcb" sceneMemberID="viewController">
+                <viewController id="hKb-n2-gcb" customClass="ViewController" customModule="Swifty_Companion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zKq-eX-JPR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
