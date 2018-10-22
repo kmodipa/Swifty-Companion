@@ -28,6 +28,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
+   /* skills table properties*/
+    
+//    @IBOutlet weak var skillsLabel: UILabel!
+//    @IBOutlet weak var skillsBar: UIProgressView!
+//    @IBOutlet weak var skillsPercentLabel: UILabel!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     var user: String? /* Info comes from the textField specified in the EntrViewController */
@@ -131,21 +137,39 @@ class ViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.userNameLabel.text = self.baseResbonse[0].login
-            self.phoneLabel.text = String(self.baseResbonse[0].phone)
+            self.phoneLabel.text = "0\(String(self.baseResbonse[0].phone))"
             self.walletLabel.text = String(self.baseResbonse[0].wallet)
             self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
             self.levelLabel.text = "Level: \(String(Int(self.cursusUsers[0].level))) - \(Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level)))%"
             self.progressBar.progress = Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level))
+            
+            if let url = URL(string: self.baseResbonse[0].image_url)
+            {
+                self.imageView.layer.borderWidth = 2
+                self.imageView.layer.borderColor = UIColor.white.cgColor
+                self.imageView.layer.cornerRadius = 80
+                self.imageView.clipsToBounds = true
+                self.downloadImage(from: url)
+            }
         }
-        
-        
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.cornerRadius = 100
-        imageView.clipsToBounds = true
-        
-        
-        
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL)
+    {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                self.imageView.image = UIImage(data: data)
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
