@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var walletLabel: UILabel!
     @IBOutlet weak var correctionLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
                         
                         /* Call the below funcs */
                         _ = self.getUserInfo()
-                        _ = self.displayUserInfo()
+//                        _ = self.displayUserInfo()
                     }
                 } catch {
                     print(error)
@@ -110,15 +111,8 @@ class ViewController: UIViewController {
                     for element in skills.arrayValue {
                         self.skills.append(Skills(element))
                     }
-                  
-                    DispatchQueue.main.async {
-                        self.userNameLabel.text = self.baseResbonse[0].login
-                        self.phoneLabel.text = String(self.baseResbonse[0].phone)
-                        self.walletLabel.text = String(self.baseResbonse[0].wallet)
-                        self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
-                        self.levelLabel.text = "Level: \(String(self.cursusUsers[0].level))"
-                    }
                     
+                    _ = self.displayUserInfo(baseResbonse: self.baseResbonse, cursusUsers: self.cursusUsers, skills: self.skills, projectUsers: self.projectUsers, project: self.project)
                     
                 } catch {
                     print(error)
@@ -133,22 +127,26 @@ class ViewController: UIViewController {
     }
     
     /* Display user info */
-    func displayUserInfo() {
+    func displayUserInfo(baseResbonse: [BaseResponse], cursusUsers: [Cursus_users], skills: [Skills], projectUsers: [Projects_users], project: [Project]) {
         
-//        userNameLabel.text = self.baseResbonse[0].login
-//        phoneLabel.text = self.baseResbonse[0].phone as? String
-//        walletLabel.text = String(self.baseResbonse[0].wallet)
-//        correctionLabel.text = String(self.baseResbonse[0].correction_point)
-//        levelLabel.text = "Level: \(String(self.cursusUsers[0].level))"
+        DispatchQueue.main.async {
+            self.userNameLabel.text = self.baseResbonse[0].login
+            self.phoneLabel.text = String(self.baseResbonse[0].phone)
+            self.walletLabel.text = String(self.baseResbonse[0].wallet)
+            self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
+            self.levelLabel.text = "Level: \(String(Int(self.cursusUsers[0].level))) - \(Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level)))%"
+            self.progressBar.progress = Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level))
+        }
+        
         
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 100
         imageView.clipsToBounds = true
         
         
         
-    }x
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
