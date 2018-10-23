@@ -19,9 +19,17 @@ class ViewController: UIViewController {
     var projectUsers = [Projects_users]()
     var project = [Project]()
     
-    @IBOutlet weak var searchTextField: UITextField!
+    /* UI Properties */
     
-    var user: String?
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var walletLabel: UILabel!
+    @IBOutlet weak var correctionLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var user: String? /* Info comes from the textField specified in the EntrViewController */
     
     var deToken = ""
     var topicsBackup: [Dictionary<String,Any>]?
@@ -50,7 +58,10 @@ class ViewController: UIViewController {
                     if let token = json["access_token"]
                     {
                         self.deToken = token as! String
-                        _ = self.getTopic()
+                        
+                        /* Call the below funcs */
+                        _ = self.getUserInfo()
+                        _ = self.displayUserInfo()
                     }
                 } catch {
                     print(error)
@@ -62,9 +73,10 @@ class ViewController: UIViewController {
     }
     
     /*  Getting the user info */
-    func getTopic() {
+    func getUserInfo() {
         print("Started connection")
-        let authEndPoint: String = "https://api.intra.42.fr/v2/users/lmucassi"
+
+        let authEndPoint: String = "https://api.intra.42.fr/v2/users/\(user!)"
         //        print(user!)
         let url = URL(string: authEndPoint)
         var request = URLRequest(url: url!)
@@ -73,52 +85,49 @@ class ViewController: UIViewController {
         let session = URLSession.shared
         
         let requestGET = session.dataTask(with: request) { (data, response, error) in
-            //print(data!)
             if let data = data {
                 do {
-                    
-//                    var base = try JSONDecoder().decode(RootClass.self, from: data)
+
                     let json = try JSON(data: data)
                     
 //                    print(json)
                     let skills = json["cursus_users"][0]["skills"]
                     let projectUsers = json["projects_users"]
                     let cursusUsers = json["cursus_users"]
-                    
-                    let image = json["image_url"].string!
+
+                    let image = json["image_url"].stringValue
                     print(image)
 //                    print(json[].string)
                     
+
                     /* Getting Cursus_users */
                     for element in cursusUsers.arrayValue {
                         self.cursusUsers.append(Cursus_users(element))
                     }
-//                    print(self.cursusUsers)
                     
                     /* Getting Project_users */
                     for element in projectUsers.arrayValue {
                         self.projectUsers.append(Projects_users(element))
                     }
-                    print("ProjectUsers: \(self.projectUsers.count)")
                     
                     /* Getting the BaseResponds */
                     self.baseResbonse.append(BaseResponse(json))
+
 //                    print(self.baseResbonse)
 
-                    
-                    
-                    print("BaseResponse: \(self.baseResbonse.count)")
-//                    print(self.baseResbonse)
-                    
                     /* Getting Skills */
                     for element in skills.arrayValue {
                         self.skills.append(Skills(element))
-//                        print(element["name"])
-//                        print(element["level"])
                     }
-                    
+                  
+                    DispatchQueue.main.async {
+                        self.userNameLabel.text = self.baseResbonse[0].login
+                        self.phoneLabel.text = String(self.baseResbonse[0].phone)
+                        self.walletLabel.text = String(self.baseResbonse[0].wallet)
+                        self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
+                        self.levelLabel.text = "Level: \(String(self.cursusUsers[0].level))"
+                    }
                     print("Skills: \(self.skills[1].name)")
-                   
                     
                 } catch {
                     print(error)
@@ -132,9 +141,22 @@ class ViewController: UIViewController {
         print("End token")
     }
     
-    
-    @IBAction func searchButton(_ sender: UIButton) {
-        getTopic()
+    /* Display user info */
+    func displayUserInfo() {
+        
+//        userNameLabel.text = self.baseResbonse[0].login
+//        phoneLabel.text = self.baseResbonse[0].phone as? String
+//        walletLabel.text = String(self.baseResbonse[0].wallet)
+//        correctionLabel.text = String(self.baseResbonse[0].correction_point)
+//        levelLabel.text = "Level: \(String(self.cursusUsers[0].level))"
+        
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.cornerRadius = 50
+        imageView.clipsToBounds = true
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
