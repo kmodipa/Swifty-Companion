@@ -10,7 +10,7 @@ import UIKit
 import JSONParserSwift
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     /*  Stuct Properties */
     var baseResbonse = [BaseResponse]()
@@ -26,6 +26,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var walletLabel: UILabel!
     @IBOutlet weak var correctionLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+   /* skills table properties*/
+    
+    @IBOutlet weak var skillsTableView: UITableView!
+    @IBOutlet weak var projectTableView: UITableView!
+    
+    
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -61,7 +69,6 @@ class ViewController: UIViewController {
                         
                         /* Call the below funcs */
                         _ = self.getUserInfo()
-                        _ = self.displayUserInfo()
                     }
                 } catch {
                     print(error)
@@ -129,6 +136,8 @@ class ViewController: UIViewController {
                     }
                     print("Skills: \(self.skills[1].name)")
                     
+                    _ = self.displayUserInfo(baseResbonse: self.baseResbonse, cursusUsers: self.cursusUsers, skills: self.skills, projectUsers: self.projectUsers, project: self.project)
+                    
                 } catch {
                     print(error)
                 }
@@ -142,21 +151,75 @@ class ViewController: UIViewController {
     }
     
     /* Display user info */
-    func displayUserInfo() {
+    func displayUserInfo(baseResbonse: [BaseResponse], cursusUsers: [Cursus_users], skills: [Skills], projectUsers: [Projects_users], project: [Project]) {
         
-//        userNameLabel.text = self.baseResbonse[0].login
-//        phoneLabel.text = self.baseResbonse[0].phone as? String
-//        walletLabel.text = String(self.baseResbonse[0].wallet)
-//        correctionLabel.text = String(self.baseResbonse[0].correction_point)
-//        levelLabel.text = "Level: \(String(self.cursusUsers[0].level))"
+        DispatchQueue.main.async {
+            self.userNameLabel.text = self.baseResbonse[0].login
+            self.phoneLabel.text = "0\(String(self.baseResbonse[0].phone))"
+            self.walletLabel.text = String(self.baseResbonse[0].wallet)
+            self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
+            self.levelLabel.text = "Level: \(String(Int(self.cursusUsers[0].level))) - \(Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level)))%"
+            self.progressBar.progress = Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level))
+            
+            if let url = URL(string: self.baseResbonse[0].image_url)
+            {
+                self.imageView.layer.borderWidth = 2
+                self.imageView.layer.borderColor = UIColor.white.cgColor
+                self.imageView.layer.cornerRadius = 70
+                self.imageView.clipsToBounds = true
+                self.downloadImage(from: url)
+                
+            }
+        }
+    }
+    
+    /* Count number of content to display on the table */
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == skillsTableView {
+            return (self.skills.count)
+        }
+        else if tableView == projectTableView {
+            return (self.projectUsers.count)
+        }
         
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.cornerRadius = 50
-        imageView.clipsToBounds = true
+        return 0
+    }
+    
+    /* Working with the relevant table and cell */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if tableView == skillsTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
+            cell.skill = self.skills[indexPath.row]
+            return cell
+        }
+        else if tableView == projectTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "projects") as! ProjectsTableViewCell
+            cell.project = self.projectUsers[indexPath.row]
+            return cell
+        }
         
-        
+        return UITableViewCell()
+    }
+    
+    /* Task to fetch the image */
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    /* Download image form given url */
+    func downloadImage(from url: URL)
+    {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                self.imageView.image = UIImage(data: data)
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
