@@ -10,7 +10,7 @@ import UIKit
 import JSONParserSwift
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     /*  Stuct Properties */
     var baseResbonse = [BaseResponse]()
@@ -30,9 +30,10 @@ class ViewController: UIViewController {
     
    /* skills table properties*/
     
-//    @IBOutlet weak var skillsLabel: UILabel!
-//    @IBOutlet weak var skillsBar: UIProgressView!
-//    @IBOutlet weak var skillsPercentLabel: UILabel!
+    @IBOutlet weak var skillsTableView: UITableView!
+    @IBOutlet weak var projectTableView: UITableView!
+    
+    
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -147,12 +148,43 @@ class ViewController: UIViewController {
             {
                 self.imageView.layer.borderWidth = 2
                 self.imageView.layer.borderColor = UIColor.white.cgColor
-                self.imageView.layer.cornerRadius = 80
+                self.imageView.layer.cornerRadius = 70
                 self.imageView.clipsToBounds = true
                 self.downloadImage(from: url)
+                
             }
         }
     }
+    
+    /* Count number of content to display on the table */
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == skillsTableView {
+            return (self.skills.count)
+        }
+        else if tableView == projectTableView {
+            return (self.projectUsers.count)
+        }
+        
+        return 0
+    }
+    
+    /* Working with the relevant table and cell */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if tableView == skillsTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
+            cell.skill = self.skills[indexPath.row]
+            return cell
+        }
+        else if tableView == projectTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "projects") as! ProjectsTableViewCell
+            cell.project = self.projectUsers[indexPath.row]
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()

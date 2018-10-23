@@ -21,6 +21,7 @@
 		AC504DF42177635B00BBBBAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC504DF22177635B00BBBBAA /* LaunchScreen.storyboard */; };
 		B119E7FF8E7143EFC7DBCCA7 /* Pods_Swifty_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB57E66676E9C6B0FD0C896 /* Pods_Swifty_Companion.framework */; };
 		C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */; };
+		C00524A1217E209A00E3FFC0 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */; };
 		C0973FF2217A095C00008CBC /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0973FF1217A095C00008CBC /* EntryViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		AC504DF32177635B00BBBBAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC504DF52177635B00BBBBAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		C0973FF1217A095C00008CBC /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		E679A8F3C23818751D959A58 /* Pods-Swifty-Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				AC419D52217876C500E3BD50 /* UserModel.swift */,
 				C0973FF1217A095C00008CBC /* EntryViewController.swift */,
 				C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */,
+				C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */,
 				AC419D582178D53B00E3BD50 /* RootClass.swift in Sources */,
 				AC504DEC2177635500BBBBAA /* ViewController.swift in Sources */,
+				C00524A1217E209A00E3FFC0 /* ProjectsTableViewCell.swift in Sources */,
 				AC419D53217876C500E3BD50 /* UserModel.swift in Sources */,
 				AC504DEA2177635500BBBBAA /* AppDelegate.swift in Sources */,
 				AC419D5E2178D7C700E3BD50 /* ProjectUsers.swift in Sources */,

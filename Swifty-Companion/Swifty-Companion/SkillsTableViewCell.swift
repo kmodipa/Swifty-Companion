@@ -15,12 +15,12 @@ class SkillsTableViewCell: UITableViewCell {
     @IBOutlet weak var skillsProgressBar: UIProgressView!
     
     
-    var skill : (String, String, Float)? {
+    var skill : (Skills)? {
             didSet {
-            if let s = skill{
-                skillsLabel?.text = s.0
-                skillsPercentageLabel?.text = s.1
-                skillsProgressBar?.progress = s.2
+            if let s = skill {
+                skillsLabel?.text = s.name
+                skillsPercentageLabel?.text = String(s.level)
+                skillsProgressBar?.progress = Float(s.level)
             }
         }
     }
