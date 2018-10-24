@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC419D53217876C500E3BD50 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D52217876C500E3BD50 /* UserModel.swift */; };
-		AC419D582178D53B00E3BD50 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D572178D53B00E3BD50 /* RootClass.swift */; };
-		AC419D5A2178D69300E3BD50 /* CursusUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D592178D69300E3BD50 /* CursusUsers.swift */; };
-		AC419D5C2178D78900E3BD50 /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D5B2178D78900E3BD50 /* Skills.swift */; };
-		AC419D5E2178D7C700E3BD50 /* ProjectUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D5D2178D7C700E3BD50 /* ProjectUsers.swift */; };
-		AC419D602178D89600E3BD50 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D5F2178D89600E3BD50 /* Project.swift */; };
-		AC419D622178D8E100E3BD50 /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D612178D8E100E3BD50 /* Cursus.swift */; };
 		AC504DEA2177635500BBBBAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC504DE92177635500BBBBAA /* AppDelegate.swift */; };
 		AC504DEC2177635500BBBBAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC504DEB2177635500BBBBAA /* ViewController.swift */; };
 		AC504DEF2177635500BBBBAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC504DED2177635500BBBBAA /* Main.storyboard */; };
@@ -23,18 +17,13 @@
 		C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */; };
 		C00524A1217E209A00E3FFC0 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */; };
 		C0973FF2217A095C00008CBC /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0973FF1217A095C00008CBC /* EntryViewController.swift */; };
+		C0A96E8D2180B6E500AFDD15 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04B9F6B7CF144946C711EB96 /* Pods-Swifty-Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.debug.xcconfig"; sourceTree = "<group>"; };
 		6BB57E66676E9C6B0FD0C896 /* Pods_Swifty_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC419D52217876C500E3BD50 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		AC419D572178D53B00E3BD50 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
-		AC419D592178D69300E3BD50 /* CursusUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursusUsers.swift; sourceTree = "<group>"; };
-		AC419D5B2178D78900E3BD50 /* Skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
-		AC419D5D2178D7C700E3BD50 /* ProjectUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUsers.swift; sourceTree = "<group>"; };
-		AC419D5F2178D89600E3BD50 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		AC419D612178D8E100E3BD50 /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
 		AC504DE62177635500BBBBAA /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC504DE92177635500BBBBAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC504DEB2177635500BBBBAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +34,7 @@
 		C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
 		C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		C0973FF1217A095C00008CBC /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 		E679A8F3C23818751D959A58 /* Pods-Swifty-Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,19 +59,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AC419D562178D50800E3BD50 /* JSONmodel */ = {
-			isa = PBXGroup;
-			children = (
-				AC419D572178D53B00E3BD50 /* RootClass.swift */,
-				AC419D592178D69300E3BD50 /* CursusUsers.swift */,
-				AC419D5B2178D78900E3BD50 /* Skills.swift */,
-				AC419D5D2178D7C700E3BD50 /* ProjectUsers.swift */,
-				AC419D5F2178D89600E3BD50 /* Project.swift */,
-				AC419D612178D8E100E3BD50 /* Cursus.swift */,
-			);
-			path = JSONmodel;
-			sourceTree = "<group>";
-		};
 		AC504DDD2177635400BBBBAA = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +66,7 @@
 				AC504DE72177635500BBBBAA /* Products */,
 				1B64B9E55BA0ACEABBDD8850 /* Pods */,
 				DCFC62658122E42689E316C9 /* Frameworks */,
+				C0A96E902180C71300AFDD15 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,7 +81,6 @@
 		AC504DE82177635500BBBBAA /* Swifty-Companion */ = {
 			isa = PBXGroup;
 			children = (
-				AC419D562178D50800E3BD50 /* JSONmodel */,
 				AC504DE92177635500BBBBAA /* AppDelegate.swift */,
 				AC504DEB2177635500BBBBAA /* ViewController.swift */,
 				AC504DED2177635500BBBBAA /* Main.storyboard */,
@@ -113,9 +90,17 @@
 				AC419D52217876C500E3BD50 /* UserModel.swift */,
 				C0973FF1217A095C00008CBC /* EntryViewController.swift */,
 				C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */,
-				C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */,
+				C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */,
 			);
 			path = "Swifty-Companion";
+			sourceTree = "<group>";
+		};
+		C0A96E902180C71300AFDD15 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		DCFC62658122E42689E316C9 /* Frameworks */ = {
@@ -240,18 +225,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC419D622178D8E100E3BD50 /* Cursus.swift in Sources */,
 				C0973FF2217A095C00008CBC /* EntryViewController.swift in Sources */,
-				AC419D5A2178D69300E3BD50 /* CursusUsers.swift in Sources */,
-				AC419D5C2178D78900E3BD50 /* Skills.swift in Sources */,
 				C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */,
-				AC419D582178D53B00E3BD50 /* RootClass.swift in Sources */,
 				AC504DEC2177635500BBBBAA /* ViewController.swift in Sources */,
 				C00524A1217E209A00E3FFC0 /* ProjectsTableViewCell.swift in Sources */,
 				AC419D53217876C500E3BD50 /* UserModel.swift in Sources */,
+				C0A96E8D2180B6E500AFDD15 /* secondViewController.swift in Sources */,
 				AC504DEA2177635500BBBBAA /* AppDelegate.swift in Sources */,
-				AC419D5E2178D7C700E3BD50 /* ProjectUsers.swift in Sources */,
-				AC419D602178D89600E3BD50 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +245,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		AC504DF22177635B00BBBBAA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
