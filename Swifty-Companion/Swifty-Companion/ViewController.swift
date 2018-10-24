@@ -144,7 +144,7 @@ class ViewController: UIViewController {
                 self.imageView.layer.borderWidth = 2
                 self.imageView.layer.borderColor = UIColor.white.cgColor
                 self.imageView.layer.cornerRadius = self.imageView.layer.bounds.height / 2
-                self.imageView.layer.cornerRadius = 60
+//                self.imageView.layer.cornerRadius = 50
                 self.imageView.clipsToBounds = true
                 self.downloadImage(from: url)
                 
