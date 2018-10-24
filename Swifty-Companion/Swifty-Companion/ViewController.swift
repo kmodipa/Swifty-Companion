@@ -10,7 +10,8 @@ import UIKit
 import JSONParserSwift
 import SwiftyJSON
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
+
     
     /*  Stuct Properties */
     var baseResbonse = [BaseResponse]()
@@ -25,14 +26,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var walletLabel: UILabel!
     @IBOutlet weak var correctionLabel: UILabel!
-    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!	
     @IBOutlet weak var progressBar: UIProgressView!
-    
-   /* skills table properties*/
-    
-    @IBOutlet weak var skillsTableView: UITableView!
-    @IBOutlet weak var projectTableView: UITableView!
-    
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -148,7 +143,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             {
                 self.imageView.layer.borderWidth = 2
                 self.imageView.layer.borderColor = UIColor.white.cgColor
-                self.imageView.layer.cornerRadius = 70
+                self.imageView.layer.cornerRadius = self.imageView.layer.bounds.height / 2
+                self.imageView.layer.cornerRadius = 60
                 self.imageView.clipsToBounds = true
                 self.downloadImage(from: url)
                 
@@ -156,36 +152,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    /* Count number of content to display on the table */
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == skillsTableView {
-            return (self.skills.count)
-        }
-        else if tableView == projectTableView {
-            return (self.projectUsers.count)
-        }
-        
-        return 0
-    }
+//    /* Count number of content to display on the table */
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if tableView == skillsTableView {
+//            return (self.skills.count)
+//        }
+//        else if tableView == projectTableView {
+//            return (self.projectUsers.count)
+//        }
+//        
+//        return 0
+//    }
     
-    /* Working with the relevant table and cell */
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if tableView == skillsTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
-            cell.skill = self.skills[indexPath.row]
-            return cell
-        }
-        else if tableView == projectTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "projects") as! ProjectsTableViewCell
-            cell.project = self.projectUsers[indexPath.row]
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
-    
-    
+//    /* Working with the relevant table and cell */
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        if tableView == skillsTableView {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
+//            cell.skill = self.skills[indexPath.row]
+//            return cell
+//        }
+//        else if tableView == projectTableView {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "projects") as! ProjectsTableViewCell
+//            cell.project = self.projectUsers[indexPath.row]
+//            return cell
+//        }
+//
+//        return UITableViewCell()
+//    }
+//
+//    func tableView(_ skillsTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return (self.skills.count)
+//    }
+//
+//    func tableView(_ skillsTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = skillsTableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
+//        cell.skill = self.skills[indexPath.row]
+//        print(self.skills.count)
+//        return cell
+//    }
+
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }

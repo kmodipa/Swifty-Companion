@@ -16,7 +16,7 @@ class SkillsTableViewCell: UITableViewCell {
     
     
     var skill : (Skills)? {
-            didSet {
+        didSet {
             if let s = skill {
                 skillsLabel?.text = s.name
                 skillsPercentageLabel?.text = String(s.level)
@@ -25,3 +25,22 @@ class SkillsTableViewCell: UITableViewCell {
         }
     }
 }
+
+//import UIKit
+//
+//class ProjectsTableViewCell: UITableViewCell {
+//    
+//    @IBOutlet weak var projectLabel: UILabel!
+//    
+//    @IBOutlet weak var projectPercentageLabel: UILabel!
+//    
+//    var project : (Projects_users)?
+//    {
+//        didSet{
+//            if let s = project {
+//                projectLabel.text = s.project?.name
+//                projectPercentageLabel.text = String(s.final_mark)
+//            }
+//        }
+//    }
+//}
