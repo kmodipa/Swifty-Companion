@@ -15,9 +15,9 @@
 		AC504DF42177635B00BBBBAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC504DF22177635B00BBBBAA /* LaunchScreen.storyboard */; };
 		B119E7FF8E7143EFC7DBCCA7 /* Pods_Swifty_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB57E66676E9C6B0FD0C896 /* Pods_Swifty_Companion.framework */; };
 		C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */; };
-		C00524A1217E209A00E3FFC0 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */; };
 		C0973FF2217A095C00008CBC /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0973FF1217A095C00008CBC /* EntryViewController.swift */; };
 		C0A96E8D2180B6E500AFDD15 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */; };
+		C0ACF2122181E168001CC887 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACF2112181E168001CC887 /* ProjectsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +35,7 @@
 		C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		C0973FF1217A095C00008CBC /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		C0ACF2112181E168001CC887 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		E679A8F3C23818751D959A58 /* Pods-Swifty-Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +92,7 @@
 				C0973FF1217A095C00008CBC /* EntryViewController.swift */,
 				C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */,
 				C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */,
+				C0ACF2112181E168001CC887 /* ProjectsTableViewCell.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";
@@ -228,7 +230,7 @@
 				C0973FF2217A095C00008CBC /* EntryViewController.swift in Sources */,
 				C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */,
 				AC504DEC2177635500BBBBAA /* ViewController.swift in Sources */,
-				C00524A1217E209A00E3FFC0 /* ProjectsTableViewCell.swift in Sources */,
+				C0ACF2122181E168001CC887 /* ProjectsTableViewCell.swift in Sources */,
 				AC419D53217876C500E3BD50 /* UserModel.swift in Sources */,
 				C0A96E8D2180B6E500AFDD15 /* secondViewController.swift in Sources */,
 				AC504DEA2177635500BBBBAA /* AppDelegate.swift in Sources */,
