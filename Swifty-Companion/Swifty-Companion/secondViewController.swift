@@ -40,13 +40,29 @@ class secondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.skills.count)
+        if (tableView == skillsTableView)
+        {
+            return (self.skills.count)
+        }
+        else
+        {
+            return (self.projectUsers.count)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = skillsTableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
-                cell.skill = self.skills[indexPath.row]
-                print(self.skills.count)
-                return cell
+        if(tableView == skillsTableView)
+        {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "skills") as! SkillsTableViewCell
+        cell.skill = self.skills[indexPath.row]
+        print(self.skills.count)
+        return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "projects") as! ProjectsTableViewCell
+            cell.project = self.projectUsers[indexPath.row]
+//            print(self.skills.count)
+            return cell
+        }
     }
 }
