@@ -20,7 +20,7 @@ class SkillsTableViewCell: UITableViewCell {
             if let s = skill {
                 skillsLabel?.text = s.name
                 skillsPercentageLabel?.text = String(s.level)
-                skillsProgressBar?.progress = Float(s.level)
+                skillsProgressBar?.progress = Float(s.level) - Float(Int(s.level))
             }
         }
     }
