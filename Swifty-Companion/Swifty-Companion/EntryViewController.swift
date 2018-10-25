@@ -13,7 +13,14 @@ class EntryViewController: UIViewController {
     /* ViewController Properties */
     @IBOutlet weak var searchTextField: UITextField!
     
+    /* Request Search */
     @IBAction func searchButton(_ sender: UIButton) {
+        if searchTextField.text == "kmodipa" {
+            performSegue(withIdentifier: "mySegue", sender: self)
+        }
+        else {
+            print("Fail!")
+        }
     }
     
     override func viewDidLoad() {
