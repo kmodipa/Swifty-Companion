@@ -7,26 +7,37 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class EntryViewController: UIViewController {
 
+    /* Properties */
+    var access_token: String!
+    var json: JSON!
+    var apiController: APIController = APIController()
+    
     /* ViewController Properties */
     @IBOutlet weak var searchTextField: UITextField!
-    
+
     /* Request Search */
     @IBAction func searchButton(_ sender: UIButton) {
-        if searchTextField.text == "kmodipa" {
-            performSegue(withIdentifier: "mySegue", sender: self)
+        
+        if self.searchTextField.text?.isEmpty ?? true {
+            print("Text field can't be empty")
         }
         else {
-            print("Fail!")
+            apiController.getUserInfo(userlogin: searchTextField.text!, token: globals.token)
+            print(globals.jsonResponse)
+            performSegue(withIdentifier: "mySegue", sender: self)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        apiController.requestToken() /* first request */
 
-        // Do any additional setup after loading the view.
+        print("View loaded")
     }
 
     override func didReceiveMemoryWarning() {

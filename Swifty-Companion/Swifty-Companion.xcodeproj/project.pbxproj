@@ -19,6 +19,7 @@
 		AC504DEF2177635500BBBBAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC504DED2177635500BBBBAA /* Main.storyboard */; };
 		AC504DF12177635B00BBBBAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC504DF02177635B00BBBBAA /* Assets.xcassets */; };
 		AC504DF42177635B00BBBBAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC504DF22177635B00BBBBAA /* LaunchScreen.storyboard */; };
+		AC8FE6772181EEB300001E97 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8FE6762181EEB300001E97 /* APIController.swift */; };
 		ACC1E8492179E6CB0028D91A /* UserEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E8482179E6CB0028D91A /* UserEntryViewController.swift */; };
 		B119E7FF8E7143EFC7DBCCA7 /* Pods_Swifty_Companion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB57E66676E9C6B0FD0C896 /* Pods_Swifty_Companion.framework */; };
 		C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */; };
@@ -42,14 +43,12 @@
 		AC504DEE2177635500BBBBAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC504DF02177635B00BBBBAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC504DF32177635B00BBBBAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AC504DF52177635B00BBBBAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; }; 
-
+		AC504DF52177635B00BBBBAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC8FE6762181EEB300001E97 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		ACC1E8482179E6CB0028D91A /* UserEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntryViewController.swift; sourceTree = "<group>"; };
-
 		C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
 		C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		C0973FF1217A095C00008CBC /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
-
 		E679A8F3C23818751D959A58 /* Pods-Swifty-Companion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,11 +115,11 @@
 				AC504DF22177635B00BBBBAA /* LaunchScreen.storyboard */,
 				AC504DF52177635B00BBBBAA /* Info.plist */,
 				AC419D52217876C500E3BD50 /* UserModel.swift */,
-
 				ACC1E8482179E6CB0028D91A /* UserEntryViewController.swift */,
 				C0973FF1217A095C00008CBC /* EntryViewController.swift */,
 				C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */,
 				C00524A0217E209A00E3FFC0 /* ProjectsTableViewCell.swift */,
+				AC8FE6762181EEB300001E97 /* APIController.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";
@@ -247,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8FE6772181EEB300001E97 /* APIController.swift in Sources */,
 				AC419D622178D8E100E3BD50 /* Cursus.swift in Sources */,
 				C0973FF2217A095C00008CBC /* EntryViewController.swift in Sources */,
 				AC419D5A2178D69300E3BD50 /* CursusUsers.swift in Sources */,

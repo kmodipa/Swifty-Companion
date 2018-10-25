@@ -19,6 +19,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var projectUsers = [Projects_users]()
     var project = [Project]()
     
+    /* API Controller instance */
+    var apiController: APIController = APIController()
+    
     /* UI Properties */
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -33,8 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var skillsTableView: UITableView!
     @IBOutlet weak var projectTableView: UITableView!
     
-    
-    
+    /* UIImage */
     @IBOutlet weak var imageView: UIImageView!
     
     var user: String? /* Info comes from the textField specified in the EntrViewController */
@@ -44,110 +46,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let UID = "ce3639778c7e09492c14afd96f1351585b88a7b533776bf487f45483c789a9be"
-        let SECRET = "baa1b092885602618b1ff23cfcb97344c3179c60973aad7a2af9a4f62f0bc9f4"
-        let BEARER = ((UID + ":" + SECRET).data(using: String.Encoding.utf8, allowLossyConversion: true))!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-        
-        guard let url = URL(string: "https://api.intra.42.fr/oauth/token") else {return}
-        let session = URLSession.shared
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("Basic " + BEARER, forHTTPHeaderField: "Authorization")
-        request.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "grant_type=client_credentials".data(using: String.Encoding.utf8)
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {
-            (data, response, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                    if let token = json["access_token"]
-                    {
-                        self.deToken = token as! String
-                        
-                        /* Call the below funcs */
-                        _ = self.getUserInfo()
-                    }
-                } catch {
-                    print(error)
-                }
-            }
-        })
-        
-        task.resume()
+        print("view loaded")
     }
     
     /*  Getting the user info */
-    func getUserInfo() {
-        print("Started connection")
+    func storeUserInfo() {
+        print("Started saving user data")
 
-        let authEndPoint: String = "https://api.intra.42.fr/v2/users/\(user!)"
-        //        print(user!)
-        let url = URL(string: authEndPoint)
-        var request = URLRequest(url: url!)
-        request.setValue("Bearer \(self.deToken)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
-        let session = URLSession.shared
+        let json = globals.jsonResponse!
         
-        let requestGET = session.dataTask(with: request) { (data, response, error) in
-            if let data = data {
-                do {
-
-                    let json = try JSON(data: data)
-                    
-//                    print(json)
-                    let skills = json["cursus_users"][0]["skills"]
-                    let projectUsers = json["projects_users"]
-                    let cursusUsers = json["cursus_users"]
-
-                    let image = json["image_url"].stringValue
-                    print(image)
-//                    print(json[].string)
-                    
-
-                    /* Getting Cursus_users */
-                    for element in cursusUsers.arrayValue {
-                        self.cursusUsers.append(Cursus_users(element))
-                    }
-                    
-                    /* Getting Project_users */
-                    for element in projectUsers.arrayValue {
-                        self.projectUsers.append(Projects_users(element))
-                    }
-                    
-                    /* Getting the BaseResponds */
-                    self.baseResbonse.append(BaseResponse(json))
-
-//                    print(self.baseResbonse)
-
-                    /* Getting Skills */
-                    for element in skills.arrayValue {
-                        self.skills.append(Skills(element))
-                    }
-                  
-                    DispatchQueue.main.async {
-                        self.userNameLabel.text = self.baseResbonse[0].login
-                        self.phoneLabel.text = String(self.baseResbonse[0].phone)
-                        self.walletLabel.text = String(self.baseResbonse[0].wallet)
-                        self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
-                        self.levelLabel.text = "Level: \(String(self.cursusUsers[0].level))"
-                    }
-                    print("Skills: \(self.skills[1].name)")
-                    
-                    _ = self.displayUserInfo(baseResbonse: self.baseResbonse, cursusUsers: self.cursusUsers, skills: self.skills, projectUsers: self.projectUsers, project: self.project)
-                    
-                } catch {
-                    print(error)
-                }
-            }
-            else {
-                print("Data is null")
-            }    
+        let skills = json["cursus_users"][0]["skills"]
+        let projectUsers = json["projects_users"]
+        let cursusUsers = json["cursus_users"]
+        
+        /* Getting Cursus_users */
+        for element in cursusUsers.arrayValue {
+            self.cursusUsers.append(Cursus_users(element))
         }
-        requestGET.resume()
-        print("End token")
+        
+        /* Getting Project_users */
+        for element in projectUsers.arrayValue {
+            self.projectUsers.append(Projects_users(element))
+        }
+        
+        /* Getting the BaseResponds */
+        self.baseResbonse.append(BaseResponse(json))
+
+        /* Getting Skills */
+        for element in skills.arrayValue {
+            self.skills.append(Skills(element))
+        }
+        
+        DispatchQueue.main.async {
+            _ = self.displayUserInfo(baseResbonse: self.baseResbonse, cursusUsers: self.cursusUsers, skills: self.skills, projectUsers: self.projectUsers, project: self.project)
+        }
+
     }
     
     /* Display user info */
