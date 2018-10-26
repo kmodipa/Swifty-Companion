@@ -27,16 +27,36 @@ class EntryViewController: UIViewController {
             print("Text field can't be empty")
         }
         else {
-            print(apiController.getUserInfo(userlogin: (searchTextField.text!.trimmingCharacters(in: .whitespaces)).lowercased(), token: globals.token))
-            print(globals.jsonResponse)
-            performSegue(withIdentifier: "mySegue", sender: self)
+            var check = false
+            self.apiController.getUserInfo(userlogin: (searchTextField.text!.trimmingCharacters(in: .whitespaces)).lowercased(), token: globals.token) {
+                (output) in
+                if output == true {
+                    check = true
+                    print("inside \(check)")
+                    print(globals.jsonResponse)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "mySegue", sender: self)
+                    }
+                }
+                else {
+                    self.popUp() /* pop-up an alert message */
+                }
+            }
+            
+            if check == true {
+//                self.performSegue(withIdentifier: "mySegue", sender: self)
+                print("Workds!")
+            }
+            else {
+                print("fails")
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiController.requestToken() /* first request */
+        self.apiController.requestToken() /* first request */
 
         print("View loaded")
     }
@@ -49,7 +69,9 @@ class EntryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mySegue" {
             let destination = segue.destination as? ViewController
-            destination?.user = searchTextField.text!
+            DispatchQueue.main.async {
+                destination?.user = self.searchTextField.text!
+            }
         }
     }
     

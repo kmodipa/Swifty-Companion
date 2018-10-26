@@ -64,8 +64,7 @@ class APIController: NSObject {
     }
     
     /*  Getting the user info */
-    func getUserInfo(userlogin: String, token: String) -> Bool{
-        var check = false
+    func getUserInfo(userlogin: String, token: String, completionBlock: @escaping (Bool) -> Void) -> Void{
         print("Started connection")
         
         let authEndPoint: String = "https://api.intra.42.fr/v2/users/\(userlogin)"
@@ -83,15 +82,16 @@ class APIController: NSObject {
                     
                     /* check if user is available */
                     if userlogin == json["login"].stringValue {
-                        check = true
                         
                         print(userlogin)
                         print(token)
-                        print(json)
-                        globals.jsonResponse = json  /* collect the response */
+//                        print(json)
+//                        globals.jsonResponse = json  /* collect the response */
+                        
+                        completionBlock(true); /* return true if successful */
                     }
                     else {
-                        
+                        completionBlock(false)  /* return false if fail */
                     }
                     
                 } catch {
@@ -105,7 +105,6 @@ class APIController: NSObject {
         requestGET.resume()
         
         print("End token")
-        return check
     }
 
 }
