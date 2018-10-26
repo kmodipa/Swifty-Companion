@@ -23,10 +23,11 @@ class EntryViewController: UIViewController {
     @IBAction func searchButton(_ sender: UIButton) {
         
         if self.searchTextField.text?.isEmpty ?? true {
+            self.popUp()
             print("Text field can't be empty")
         }
         else {
-            apiController.getUserInfo(userlogin: searchTextField.text!, token: globals.token)
+            print(apiController.getUserInfo(userlogin: (searchTextField.text!.trimmingCharacters(in: .whitespaces)).lowercased(), token: globals.token))
             print(globals.jsonResponse)
             performSegue(withIdentifier: "mySegue", sender: self)
         }
@@ -50,6 +51,22 @@ class EntryViewController: UIViewController {
             let destination = segue.destination as? ViewController
             destination?.user = searchTextField.text!
         }
+    }
+    
+    func popUp()
+    {
+        var alert = UIAlertController()
+        let message = "The username:  " + self.searchTextField.text! + " was not found. Please try again..."
+        if self.searchTextField.text?.isEmpty ?? true
+        {
+            alert = UIAlertController(title: "No Username", message: "Username text field can't be empty!", preferredStyle: .alert)
+        }
+        else
+        {
+            alert = UIAlertController(title: "Username Error", message: message, preferredStyle: .alert)
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
 
