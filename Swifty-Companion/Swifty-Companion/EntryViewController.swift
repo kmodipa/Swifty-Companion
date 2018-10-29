@@ -10,22 +10,49 @@ import UIKit
 
 class EntryViewController: UIViewController {
 
+    /* Properties */
+    var apiController: APIController = APIController()
+    
     /* ViewController Properties */
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBAction func searchButton(_ sender: UIButton) {
-        if searchTextField.text == "kmodipa" {
-            performSegue(withIdentifier: "mySegue", sender: self)
+        
+        if self.searchTextField.text?.isEmpty ?? true {
+            DispatchQueue.main.async {
+                self.popUp()
+            }
+            
+            print("Text field can't be empty")
         }
         else {
-            print("Fail!")
+            
+            let returned = self.apiController.getUserInfo(userlogin: (searchTextField.text!.trimmingCharacters(in: .whitespaces)).lowercased(), token: globals.token) {
+                (output, error) in
+                if let data = output {
+                    DispatchQueue.main.async {
+                        print(data)
+                        self.performSegue(withIdentifier: "mySegue", sender: self)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.popUp() /* pop-up an alert message */
+                    }
+                }
+            }
+            
+            if !returned.result {
+                self.apiController.requestToken() /* follow up request */
+                print("Fails")
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.apiController.requestToken() /* first request */
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +65,22 @@ class EntryViewController: UIViewController {
             let destination = segue.destination as? ViewController
             destination?.user = searchTextField.text!
         }
+    }
+    
+    func popUp()
+    {
+        var alert = UIAlertController()
+        let message = "The username:  " + self.searchTextField.text! + " was not found. Please try again..."
+        if self.searchTextField.text?.isEmpty ?? true
+        {
+            alert = UIAlertController(title: "No Username", message: "Username text field can't be empty!", preferredStyle: .alert)
+        }
+        else
+        {
+            alert = UIAlertController(title: "Username Error", message: message, preferredStyle: .alert)
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
 
