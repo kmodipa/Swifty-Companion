@@ -158,21 +158,18 @@ struct BaseResponse {
     var image_url: String = ""
     var displayname: String = ""
     var login: String = ""
-    var phone: Any?
+    var phone: Int = 0
     var wallet: Int = 0
     var correction_point: Int = 0
     var cursus_users: [Cursus_users]?
     var projects_users: [Projects_users]?
-    
-    init() {
-        
-    }
+
     
     init(_ json: JSON) {
         image_url = json["image_url"].stringValue
         displayname = json["displayname"].stringValue
         login = json["login"].stringValue
-        phone = json["phone"]
+        phone = json["phone"].intValue
         wallet = json["wallet"].intValue
         correction_point = json["correction_point"].intValue
         cursus_users = json["cursus_users"].arrayValue.map { Cursus_users($0) }
