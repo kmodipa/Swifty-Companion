@@ -17,13 +17,8 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBAction func searchButton(_ sender: UIButton) {
-        
-        if self.searchTextField.text?.isEmpty ?? true {
-            DispatchQueue.main.async {
-                self.popUp()
-            }
-            
-            print("Text field can't be empty")
+        if searchTextField.text == "arangari" {
+            performSegue(withIdentifier: "mySegue", sender: self)
         }
         else {
             
