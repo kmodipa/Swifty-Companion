@@ -64,13 +64,21 @@ class APIController: NSObject {
     }
     
     /*  Getting the user info */
-    func getUserInfo(userlogin: String, token: String, completionBlock: @escaping (Bool) -> Void) -> Void{
+    func getUserInfo(userlogin: String, token: String?, completionBlock: @escaping (JSON?, Error?) -> Void) -> (result: Bool, message: String?){
         print("Started connection")
         
+        /* check for token valididty */
+        guard let token_check = token else {
+            print("Token problem!")
+            return (false, "Token Problem!")
+        }
+        
         let authEndPoint: String = "https://api.intra.42.fr/v2/users/\(userlogin)"
-        let url = URL(string: authEndPoint)
-        var request = URLRequest(url: url!)
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        guard let url = URL(string: authEndPoint) else {return (false, "Login not found!")}
+        
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token_check)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         let session = URLSession.shared
         
@@ -84,14 +92,12 @@ class APIController: NSObject {
                     if userlogin == json["login"].stringValue {
                         
                         print(userlogin)
-                        print(token)
-//                        print(json)
-//                        globals.jsonResponse = json  /* collect the response */
+                        print(token_check)
                         
-                        completionBlock(true); /* return true if successful */
+                        completionBlock(json, nil); /* return true if successful */
                     }
                     else {
-                        completionBlock(false)  /* return false if fail */
+                        completionBlock(nil, error)  /* return false if fail */
                     }
                     
                 } catch {
@@ -105,6 +111,7 @@ class APIController: NSObject {
         requestGET.resume()
         
         print("End token")
+        return (true, "Success!")
     }
 
 }

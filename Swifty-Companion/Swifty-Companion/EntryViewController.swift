@@ -23,32 +23,32 @@ class EntryViewController: UIViewController {
     @IBAction func searchButton(_ sender: UIButton) {
         
         if self.searchTextField.text?.isEmpty ?? true {
-            self.popUp()
+            DispatchQueue.main.async {
+                self.popUp()
+            }
+            
             print("Text field can't be empty")
         }
         else {
-            var check = false
-            self.apiController.getUserInfo(userlogin: (searchTextField.text!.trimmingCharacters(in: .whitespaces)).lowercased(), token: globals.token) {
-                (output) in
-                if output == true {
-                    check = true
-                    print("inside \(check)")
-                    print(globals.jsonResponse)
+
+            let returned = self.apiController.getUserInfo(userlogin: (searchTextField.text!.trimmingCharacters(in: .whitespaces)).lowercased(), token: globals.token) {
+                (output, error) in
+                if let data = output {
                     DispatchQueue.main.async {
+                        print(data)
                         self.performSegue(withIdentifier: "mySegue", sender: self)
                     }
                 }
                 else {
-                    self.popUp() /* pop-up an alert message */
+                    DispatchQueue.main.async {
+                        self.popUp() /* pop-up an alert message */
+                    }
                 }
             }
             
-            if check == true {
-//                self.performSegue(withIdentifier: "mySegue", sender: self)
-                print("Workds!")
-            }
-            else {
-                print("fails")
+            if !returned.result {
+                self.apiController.requestToken() /* follow up request */
+                print("Fails")
             }
         }
     }
