@@ -87,12 +87,17 @@ class ViewController: UIViewController {
     /* Display user info */
     func displayUserInfo(baseResbonse: [BaseResponse], cursusUsers: [Cursus_users], skills: [Skills], projectUsers: [Projects_users], project: [Project]) {
         
+        /* Monkey tricks to chop off the 0 from '0.XX' */
+        let str = String(Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level)))
+        let index = str.index(str.startIndex, offsetBy: 1) /* Start at index 1 '.XX' */
+        let suffix = str[index...]
+        
         DispatchQueue.main.async {
             self.userNameLabel.text = self.baseResbonse[0].login
             self.phoneLabel.text = "0\(String(self.baseResbonse[0].phone))"
-            self.walletLabel.text = String(self.baseResbonse[0].wallet)
-            self.correctionLabel.text = String(self.baseResbonse[0].correction_point)
-            self.levelLabel.text = "Level: \(String(Int(self.cursusUsers[0].level))) - \(Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level)))%"
+            self.walletLabel.text = "Wallet: " + String(self.baseResbonse[0].wallet)
+            self.correctionLabel.text = "CPoints: " + String(self.baseResbonse[0].correction_point)
+            self.levelLabel.text = "Level: \(String(Int(self.cursusUsers[0].level)))\(suffix)%"
             self.progressBar.progress = Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level))
             
             if let url = URL(string: self.baseResbonse[0].image_url)
@@ -100,7 +105,6 @@ class ViewController: UIViewController {
                 self.imageView.layer.borderWidth = 2
                 self.imageView.layer.borderColor = UIColor.white.cgColor
                 self.imageView.layer.cornerRadius = self.imageView.layer.bounds.height / 2
-//                self.imageView.layer.cornerRadius = 50
                 self.imageView.clipsToBounds = true
                 self.downloadImage(from: url)
                 
