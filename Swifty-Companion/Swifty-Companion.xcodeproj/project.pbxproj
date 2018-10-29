@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC238947218735ED008918DD /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238946218735ED008918DD /* APIController.swift */; };
 		AC419D53217876C500E3BD50 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC419D52217876C500E3BD50 /* UserModel.swift */; };
 		AC504DEA2177635500BBBBAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC504DE92177635500BBBBAA /* AppDelegate.swift */; };
 		AC504DEC2177635500BBBBAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC504DEB2177635500BBBBAA /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		04B9F6B7CF144946C711EB96 /* Pods-Swifty-Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty-Companion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.debug.xcconfig"; sourceTree = "<group>"; };
 		6BB57E66676E9C6B0FD0C896 /* Pods_Swifty_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC238946218735ED008918DD /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AC419D52217876C500E3BD50 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AC504DE62177635500BBBBAA /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC504DE92177635500BBBBAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				C005249E217E02FE00E3FFC0 /* SkillsTableViewCell.swift */,
 				C0A96E8C2180B6E500AFDD15 /* secondViewController.swift */,
 				C0ACF2112181E168001CC887 /* ProjectsTableViewCell.swift */,
+				AC238946218735ED008918DD /* APIController.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				C005249F217E02FE00E3FFC0 /* SkillsTableViewCell.swift in Sources */,
 				AC504DEC2177635500BBBBAA /* ViewController.swift in Sources */,
 				C0ACF2122181E168001CC887 /* ProjectsTableViewCell.swift in Sources */,
+				AC238947218735ED008918DD /* APIController.swift in Sources */,
 				AC419D53217876C500E3BD50 /* UserModel.swift in Sources */,
 				C0A96E8D2180B6E500AFDD15 /* secondViewController.swift in Sources */,
 				AC504DEA2177635500BBBBAA /* AppDelegate.swift in Sources */,
