@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -54,12 +54,12 @@
 		6BA4BA4A97E9F4E1C02F76F2D8BF5394 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		745C74DC0AE6BE18D37517D23C221AF2 /* Pods-Swifty-Companion-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Swifty-Companion-acknowledgements.markdown"; sourceTree = "<group>"; };
 		78888E3DF81366353E3E4DCC63ED0126 /* JSONParserSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONParserSwift.swift; path = Source/JSONParserSwift.swift; sourceTree = "<group>"; };
-		7ACFEF54B884E23C4CE71172B5DD8834 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ACFEF54B884E23C4CE71172B5DD8834 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		826E7F7BAA76EFFBF4DFD81824491736 /* JSONParserSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONParserSwift-prefix.pch"; sourceTree = "<group>"; };
 		8E7994A4A5D8290F1EF5FA535BB2B7A5 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		91D022B790C05316F8AAD2F2629157DD /* Pods_Swifty_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swifty_Companion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D022B790C05316F8AAD2F2629157DD /* Pods_Swifty_Companion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Swifty_Companion.framework; path = "Pods-Swifty-Companion.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DE97F1B445DAB605CA1A8C631F6723 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9835EDC31C9FD440461511419EB41698 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		AB24D786E53926DB24384DF954D3F59D /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		B9F0731EDE65AF5F5A3D49885520A09D /* ParsableModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsableModel.swift; path = Source/ParsableModel.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		DAA02CCF7C4B2C19B78CE7F0ACB931C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDAA794EA6553BAD641A0765A053B065 /* Pods-Swifty-Companion-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Swifty-Companion-dummy.m"; sourceTree = "<group>"; };
 		FCEA1B5394C687F132BB2663573572C7 /* Pods-Swifty-Companion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Swifty-Companion.debug.xcconfig"; sourceTree = "<group>"; };
-		FE3411169EB32FE9882B87E96D57E31B /* JSONParserSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONParserSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE3411169EB32FE9882B87E96D57E31B /* JSONParserSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JSONParserSwift.framework; path = JSONParserSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE54EA5BFE2E4D0616477BD9E850D436 /* Pods-Swifty-Companion.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Swifty-Companion.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +125,7 @@
 				6BA4BA4A97E9F4E1C02F76F2D8BF5394 /* SwiftyJSON.swift */,
 				C27592D862AFC9FCE5420D7903057573 /* Support Files */,
 			);
+			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -154,6 +155,7 @@
 				BA6828B513B6444E47593005C4B35BD5 /* Serialization.swift */,
 				E10BF0CBDA5F71601C632DBB73C52FB5 /* Support Files */,
 			);
+			name = JSONParserSwift;
 			path = JSONParserSwift;
 			sourceTree = "<group>";
 		};
@@ -311,7 +313,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -460,7 +462,11 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Swifty-Companion/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.modulemap";
 				OTHER_LDFLAGS = "";
@@ -495,7 +501,11 @@
 				INFOPLIST_FILE = "Target Support Files/JSONParserSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/JSONParserSwift/JSONParserSwift.modulemap";
 				PRODUCT_MODULE_NAME = JSONParserSwift;
 				PRODUCT_NAME = JSONParserSwift;
@@ -528,7 +538,11 @@
 				INFOPLIST_FILE = "Target Support Files/JSONParserSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/JSONParserSwift/JSONParserSwift.modulemap";
 				PRODUCT_MODULE_NAME = JSONParserSwift;
 				PRODUCT_NAME = JSONParserSwift;
@@ -597,7 +611,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -619,7 +632,11 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
@@ -651,7 +668,11 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
@@ -685,7 +706,11 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Swifty-Companion/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Swifty-Companion/Pods-Swifty-Companion.modulemap";
 				OTHER_LDFLAGS = "";
