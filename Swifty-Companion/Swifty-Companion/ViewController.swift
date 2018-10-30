@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctionLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!	
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var campusLabel: UILabel!
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -99,6 +100,7 @@ class ViewController: UIViewController {
             self.correctionLabel.text = "CPoints: " + String(self.baseResbonse[0].correction_point)
             self.levelLabel.text = "Level: \(String(Int(self.cursusUsers[0].level)))\(suffix)%"
             self.progressBar.progress = Float((self.cursusUsers[0].level)) - Float(Int(self.cursusUsers[0].level))
+            self.campusLabel.text = self.baseResbonse[0].campus
             
             if let url = URL(string: self.baseResbonse[0].image_url)
             {

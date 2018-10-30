@@ -163,6 +163,7 @@ struct BaseResponse {
     var correction_point: Int = 0
     var cursus_users: [Cursus_users]?
     var projects_users: [Projects_users]?
+    var campus: String = ""
 
     
     init(_ json: JSON) {
@@ -174,6 +175,7 @@ struct BaseResponse {
         correction_point = json["correction_point"].intValue
         cursus_users = json["cursus_users"].arrayValue.map { Cursus_users($0) }
         projects_users = json["projects_users"].arrayValue.map { Projects_users($0)}
+        campus = json["campus"][0]["city"].stringValue
     }
 
 }
