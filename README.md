@@ -1,5 +1,5 @@
 # Swifty-Companion
-An iOS Application that makes use of the 42 API to retrieve information about students.
+An iOS Application that makes use of the [42 API](https://api.intra.42.fr/apidoc/2.0.html) to retrieve information about students.
 
 #### How to Clone and Run
 
